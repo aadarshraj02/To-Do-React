@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
 import Navbar from "./components/Navbar";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -60,6 +61,7 @@ const App = () => {
         startEditing={startEditing}
         markCompleted={markCompleted}
       />
+      <Toaster />
     </div>
   );
 };
