@@ -1,4 +1,3 @@
-import React from "react";
 import { MdEditNote, MdDelete } from "react-icons/md";
 
 const ToDoItem = ({ task }) => {

@@ -1,12 +1,19 @@
 import ToDoItem from "./ToDoItem";
 
-const ToDoList = () => {
+const ToDoList = ({ tasks }) => {
   return (
     <div className="py-2 px-4">
-      <h1 className="text-zinc-300 text-xl font-semibold text-center">
-        All Task Finished Or No Task Added
-      </h1>
-      <ToDoItem />
+      {tasks.length === 0 ? (
+        <h1 className="text-zinc-300 text-xl font-semibold text-center">
+          All Tasks Finished Or No Task Added
+        </h1>
+      ) : (
+        <ul>
+          {tasks.map((task) => (
+            <ToDoItem key={task.id} task={task} />
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
