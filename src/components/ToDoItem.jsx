@@ -3,16 +3,16 @@ import { MdDelete } from "react-icons/md";
 
 const ToDoItem = () => {
   return (
-    <div>
+    <div className="flex items-center justify-between py-2 px-5 bg-zinc-950 mb-5 rounded-lg">
       <div>
         <input type="checkbox" />
       </div>
       <div>
-        <h3>Code</h3>
+        <h3 className="text-white text-lg">Code</h3>
       </div>
-      <div>
-        <MdEditNote />
-        <MdDelete />
+      <div className="flex gap-5">
+        <MdEditNote className="text-blue-500 text-xl cursor-pointer hover:scale-125 transition-all duration-300 ease-linear" />
+        <MdDelete className="text-red-500 text-xl cursor-pointer hover:scale-125 transition-all duration-300 ease-linear" />
       </div>
     </div>
   );
