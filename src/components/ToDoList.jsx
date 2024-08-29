@@ -1,6 +1,6 @@
 import ToDoItem from "./ToDoItem";
 
-const ToDoList = ({ tasks, deleteTask, startEditing }) => {
+const ToDoList = ({ tasks, deleteTask, startEditing, markCompleted }) => {
   return (
     <div className="py-2 px-4">
       {tasks.length === 0 ? (
@@ -15,6 +15,7 @@ const ToDoList = ({ tasks, deleteTask, startEditing }) => {
               task={task}
               deleteTask={deleteTask}
               startEditing={startEditing}
+              markCompleted={markCompleted}
             />
           ))}
         </ul>
