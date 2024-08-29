@@ -4,7 +4,7 @@ import { MdDelete } from "react-icons/md";
 const ToDoItem = () => {
   return (
     <div className="flex items-center justify-between py-2 px-5 bg-zinc-950 mb-5 rounded-lg">
-      <div>
+      <div className="hidden md:block">
         <input type="checkbox" />
       </div>
       <div>
