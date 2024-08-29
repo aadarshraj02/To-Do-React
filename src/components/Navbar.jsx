@@ -1,8 +1,8 @@
 const Navbar = () => {
   return (
     <>
-      <div>
-        <h1>To Do Lists</h1>
+      <div className="text-center p-4 bg-zinc-950 text-zinc-300 shadow-lg fixed top-0 w-full">
+        <h1 className="text-2xl">To Do List</h1>
       </div>
     </>
   );
