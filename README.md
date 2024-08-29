@@ -9,7 +9,7 @@ A simple To-Do List application built with React. This app allows users to add, 
 
   ## Github Link
   
-  (https://github.com/aadarshraj02/To-Do-React)
+  https://github.com/aadarshraj02/To-Do-React
   
 ## Run Locally  
 Clone the project  
