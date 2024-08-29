@@ -39,6 +39,13 @@ const App = () => {
     setTasks(updatedTasks);
   };
 
+  const markCompleted = (taskId) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? { ...task, completed: !task.completed } : task
+    );
+    setTasks(updatedTasks);
+  };
+
   const startEditing = (task) => {
     setEditingTask(task);
   };
@@ -51,6 +58,7 @@ const App = () => {
         tasks={tasks}
         deleteTask={deleteTask}
         startEditing={startEditing}
+        markCompleted={markCompleted}
       />
     </div>
   );
