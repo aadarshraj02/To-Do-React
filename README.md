@@ -6,6 +6,10 @@ A simple To-Do List application built with React. This app allows users to add, 
   ## Live Demo
 
   https://to-do-react-ebon-six.vercel.app/
+
+  ## Github Link
+  
+  (https://github.com/aadarshraj02/To-Do-React)
   
 ## Run Locally  
 Clone the project  
@@ -33,7 +37,7 @@ npm run dev
 ~~~  
 Open the Application:
 
-Open your browser and navigate to http://localhost:3000 to view the application.
+Open your browser and navigate to http://localhost:5173 to view the application.
 
 ## Features
 
