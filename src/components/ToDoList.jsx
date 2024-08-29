@@ -1,6 +1,6 @@
 import ToDoItem from "./ToDoItem";
 
-const ToDoList = ({ tasks, deleteTask }) => {
+const ToDoList = ({ tasks, deleteTask, editTask }) => {
   return (
     <div className="py-2 px-4">
       {tasks.length === 0 ? (
@@ -10,7 +10,12 @@ const ToDoList = ({ tasks, deleteTask }) => {
       ) : (
         <ul>
           {tasks.map((task) => (
-            <ToDoItem key={task.id} task={task} deleteTask={deleteTask} />
+            <ToDoItem
+              key={task.id}
+              task={task}
+              deleteTask={deleteTask}
+              editTask={editTask}
+            />
           ))}
         </ul>
       )}
