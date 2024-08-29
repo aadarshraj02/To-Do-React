@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const Header = ({ addTask }) => {
-  const [task, setTask] = useState("");
+const Header = ({ addTask, editingTask }) => {
+  const [taskText, setTaskText] = useState("");
+
+  useEffect(() => {
+    if (editingTask) {
+      setTaskText(editingTask.text);
+    }
+  }, [editingTask]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (task.trim()) {
-      addTask(task);
-      setTask("");
-    }
+    if (!taskText.trim()) return;
+    addTask(taskText);
+    setTaskText("");
   };
 
   return (
@@ -22,14 +27,11 @@ const Header = ({ addTask }) => {
           <input
             type="text"
             className="p-1 md:p-2 rounded-md outline-none md:w-[70%] w-full"
-            value={task}
-            onChange={(e) => setTask(e.target.value)}
+            value={taskText}
+            onChange={(e) => setTaskText(e.target.value)}
           />
-          <button
-            type="submit"
-            className="bg-green-700 px-2 py-1 md:p-2 rounded-md text-zinc-200 hover:text-zinc-300 hover:bg-green-800 transition-all duration-300 ease-linear md:w-[30%] lg:w-[20%] w-full"
-          >
-            Add Task
+          <button className="bg-green-700 px-2 py-1 md:p-2 rounded-md text-zinc-200 hover:text-zinc-300 hover:bg-green-800 transition-all duration-300 ease-linear md:w-[30%] lg:w-[20%] w-full">
+            {editingTask ? "Update Task" : "Add Task"}
           </button>
         </div>
       </form>
