@@ -10,7 +10,7 @@ const ToDoItem = ({ task, deleteTask, startEditing, markCompleted }) => {
           onChange={() => markCompleted(task.id)}
         />
         {task.completed && (
-          <span className="text-green-500 ml-2">Task Completed</span>
+          <span className="text-green-500 ml-4">Task Completed</span>
         )}
       </div>
       <div>
