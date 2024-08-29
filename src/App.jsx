@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -18,6 +19,7 @@ const App = () => {
 
   return (
     <div>
+      <Navbar />
       <Header addTask={addTask} />
       <ToDoList tasks={tasks} />
     </div>
