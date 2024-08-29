@@ -27,11 +27,18 @@ const App = () => {
     setTasks(updatedTasks);
   };
 
+  const editTask = (taskId, newTaskText) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? { ...task, text: newTaskText } : task
+    );
+    setTasks(updatedTasks);
+  };
+
   return (
     <div>
       <Navbar />
       <Header addTask={addTask} />
-      <ToDoList tasks={tasks} deleteTask={deleteTask} />
+      <ToDoList tasks={tasks} deleteTask={deleteTask} editTask={editTask} />
     </div>
   );
 };
