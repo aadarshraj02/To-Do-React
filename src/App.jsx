@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
 import Navbar from "./components/Navbar";
-import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -14,23 +14,42 @@ const App = () => {
   };
 
   const addTask = (taskText) => {
+    if (!taskText.trim()) {
+      return;
+    }
+
     if (editingTask) {
-      editTask(editingTask.id, capitalize(taskText));
-      setEditingTask(null);
+      try {
+        editTask(editingTask.id, capitalize(taskText));
+        setEditingTask(null);
+        toast.success("Task updated successfully!");
+      } catch (error) {
+        toast.error(error.message);
+      }
     } else {
-      const newTask = {
-        id: taskIdRef.current,
-        text: capitalize(taskText),
-        completed: false,
-      };
-      setTasks([...tasks, newTask]);
-      taskIdRef.current += 1;
+      try {
+        const newTask = {
+          id: taskIdRef.current,
+          text: capitalize(taskText),
+          completed: false,
+        };
+        setTasks([...tasks, newTask]);
+        taskIdRef.current += 1;
+        toast.success("Task added successfully!");
+      } catch (error) {
+        toast.error(error.message);
+      }
     }
   };
 
   const deleteTask = (taskId) => {
-    const updatedTasks = tasks.filter((task) => task.id !== taskId);
-    setTasks(updatedTasks);
+    try {
+      const updatedTasks = tasks.filter((task) => task.id !== taskId);
+      setTasks(updatedTasks);
+      toast.success("Task deleted successfully!");
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   const editTask = (taskId, newTaskText) => {
