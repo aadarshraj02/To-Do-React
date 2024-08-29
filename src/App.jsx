@@ -7,10 +7,15 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
   const taskIdRef = useRef(1);
 
+  const capitalize = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
   const addTask = (taskText) => {
+    const capitalizeText = capitalize(taskText);
     const newTask = {
       id: taskIdRef.current,
-      text: taskText,
+      text: capitalizeText,
       completed: false,
     };
     setTasks([...tasks, newTask]);
