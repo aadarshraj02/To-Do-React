@@ -30,7 +30,13 @@ const Header = ({ addTask, editingTask }) => {
             value={taskText}
             onChange={(e) => setTaskText(e.target.value)}
           />
-          <button className="bg-green-700 px-2 py-1 md:p-2 rounded-md text-zinc-200 hover:text-zinc-300 hover:bg-green-800 transition-all duration-300 ease-linear md:w-[30%] lg:w-[20%] w-full">
+          <button
+            className={`px-2 py-1 md:p-2 rounded-md text-zinc-200 transition-all duration-300 ease-linear md:w-[30%] lg:w-[20%] w-full ${
+              editingTask
+                ? "bg-blue-700 hover:bg-blue-800"
+                : "bg-green-700 hover:bg-green-800"
+            }`}
+          >
             {editingTask ? "Update Task" : "Add Task"}
           </button>
         </div>
