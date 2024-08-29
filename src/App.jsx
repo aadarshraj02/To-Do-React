@@ -6,20 +6,25 @@ import Navbar from "./components/Navbar";
 const App = () => {
   const [tasks, setTasks] = useState([]);
   const taskIdRef = useRef(1);
+  const [editingTask, setEditingTask] = useState(null);
 
   const capitalize = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
   const addTask = (taskText) => {
-    const capitalizeText = capitalize(taskText);
-    const newTask = {
-      id: taskIdRef.current,
-      text: capitalizeText,
-      completed: false,
-    };
-    setTasks([...tasks, newTask]);
-    taskIdRef.current += 1;
+    if (editingTask) {
+      editTask(editingTask.id, capitalize(taskText));
+      setEditingTask(null);
+    } else {
+      const newTask = {
+        id: taskIdRef.current,
+        text: capitalize(taskText),
+        completed: false,
+      };
+      setTasks([...tasks, newTask]);
+      taskIdRef.current += 1;
+    }
   };
 
   const deleteTask = (taskId) => {
@@ -34,11 +39,19 @@ const App = () => {
     setTasks(updatedTasks);
   };
 
+  const startEditing = (task) => {
+    setEditingTask(task);
+  };
+
   return (
     <div>
       <Navbar />
-      <Header addTask={addTask} />
-      <ToDoList tasks={tasks} deleteTask={deleteTask} editTask={editTask} />
+      <Header addTask={addTask} editingTask={editingTask} />
+      <ToDoList
+        tasks={tasks}
+        deleteTask={deleteTask}
+        startEditing={startEditing}
+      />
     </div>
   );
 };
