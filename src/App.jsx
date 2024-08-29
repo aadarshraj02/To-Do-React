@@ -22,11 +22,16 @@ const App = () => {
     taskIdRef.current += 1;
   };
 
+  const deleteTask = (taskId) => {
+    const updatedTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(updatedTasks);
+  };
+
   return (
     <div>
       <Navbar />
       <Header addTask={addTask} />
-      <ToDoList tasks={tasks} />
+      <ToDoList tasks={tasks} deleteTask={deleteTask} />
     </div>
   );
 };
